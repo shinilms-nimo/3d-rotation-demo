@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:gravity="center_horizontal"
+        android:text="3D Affine Transformations and Quaternion Rotations on a Cube"
+        android:textAlignment="center" />
+
+    <com.example.a3dtest.MyView
+        android:id="@+id/polyView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Operations:"
+        android:paddingBottom="20dp"
+        android:layout_height="wrap_content" />
+    <!-- houses all the controls -->
+    <!-- scaling SeekBar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_scaleX"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+
+            android:text="SLX: (1.00) " />
+
+        <SeekBar
+            android:id="@+id/sb_scaleX"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="500"
+            android:progress="100" />
+
+        <TextView
+            android:id="@+id/tv_scaleY"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SLY: (1.00) " />
+
+        <SeekBar
+            android:id="@+id/sb_scaleY"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="500"
+            android:progress="100" />
+
+        <TextView
+            android:id="@+id/tv_scaleZ"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="SLZ: (1.00) " />
+
+        <SeekBar
+            android:id="@+id/sb_scaleZ"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="500"
+            android:progress="100" />
+    </LinearLayout>
+
+    <!-- just to ensure indenting, placing another TV in-between -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+    <!-- translation SeekBar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_trx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:text="TRX: (400) " />
+
+        <SeekBar
+            android:id="@+id/sb_translationX"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="1000"
+            android:progress="400" />
+
+        <TextView
+            android:id="@+id/tv_try"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="TRY: (400) " />
+
+        <SeekBar
+            android:id="@+id/sb_translationY"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="1000"
+            android:progress="400" />
+
+        <TextView
+            android:id="@+id/tv_trz"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="TRZ: (400) " />
+
+        <SeekBar
+            android:id="@+id/sb_translationZ"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="1000"
+            android:progress="400" />
+    </LinearLayout>
+    <!-- just to ensure indenting, placing another TV in-between -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+
+    <!-- shear SeekBar -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_shx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+
+            android:layout_marginLeft="5dp"
+            android:text="SHX: (0.00) " />
+
+        <SeekBar
+            android:id="@+id/sb_shearX"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="500" />
+
+        <TextView
+            android:id="@+id/tv_shy"
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:text="SHY: (0.00) " />
+
+        <SeekBar
+            android:id="@+id/sb_shearY"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="500" />
+
+    </LinearLayout>
+    <!-- rotation controls -->
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rg_select"
+        android:background="@color/colorPrimaryDark"
+        android:orientation="vertical">
+
+        <RadioButton
+            android:id="@+id/rb_quaternion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Quaternion Rotation About Axes:" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/cb_x"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="X" />
+
+            <CheckBox
+                android:id="@+id/cb_y"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Y" />
+
+            <CheckBox
+                android:id="@+id/cb_z"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Z" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/tv_quatRotAngle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:text="ANGL: (000°) " />
+
+            <SeekBar
+                android:id="@+id/sb_quatRotationAngle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="359"
+                android:progress="0" />
+        </LinearLayout>
+        <RadioButton
+            android:id="@+id/rb_affine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Affine Rotation (prone to gimbal lock): " />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_rotX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+
+                android:text="RTX: (000°) " />
+
+            <SeekBar
+                android:id="@+id/sb_rotationX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="359"
+                android:progress="0" />
+
+            <TextView
+                android:id="@+id/tv_rotY"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="RTY: (000°) " />
+
+            <SeekBar
+                android:id="@+id/sb_rotationY"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="359"
+                android:progress="0" />
+
+            <TextView
+                android:id="@+id/tv_rotZ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="RTZ: (000°) " />
+
+            <SeekBar
+                android:id="@+id/sb_rotationZ"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:max="359"
+                android:progress="0" />
+        </LinearLayout>
+
+
+        <!-- just to ensure indenting, placing another TV in-between -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="10dp" />
+    </RadioGroup>
+</LinearLayout>
